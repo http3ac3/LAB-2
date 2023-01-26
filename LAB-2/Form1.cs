@@ -16,7 +16,7 @@ namespace LAB_2
         double t = 0; // кол-во недель
         int v = 0; // паролей/величина
         double downS; // нижнаяя граница паролей
-        int s;  // кол-во паролей
+        double s;  // кол-во паролей
         int accesibleLowSymbols = 26;
         int accesibleLowHighSymbols = 52;
         int accesibleLowHighNumSymbols = 62;
@@ -40,26 +40,35 @@ namespace LAB_2
         {
             VComboBox.SelectedIndex = 0;
             TComboBox.SelectedIndex = 0;
+            AccessibleSymbolsCB.SelectedIndex = 0;
         }
 
         private void GetAnswerButton_Click(object sender, EventArgs e)
         {
-            switch (VComboBox.SelectedIndex) // 0 - минуту, 1 - дней, 2 - неделю
+            if (VComboBox.SelectedIndex == 0) v = Convert.ToInt32(VValueBox.Value) * 60 * 24 * 7;
+            else if (VComboBox.SelectedIndex == 1) v = Convert.ToInt32(VValueBox.Value) * 7;
+            else v = Convert.ToInt32(VValueBox.Value);
+
+            if (TComboBox.SelectedIndex == 0) t = Math.Round(Convert.ToDouble(TValueBox.Value) / 7.0, 2);
+            else t = Convert.ToDouble(TValueBox.Value);
+
+            p = Convert.ToDouble(PValueBox.Value);
+            downS = v * t / p;
+            DownSTB.Text = downS.ToString();
+            
+            switch (AccessibleSymbolsCB.SelectedIndex)
             {
                 case 0:
-                    if (TComboBox.SelectedIndex == 0)
-                    {
-                        t = Math.Round(Convert.ToDouble(TValueBox.Value) / 7.0, 2);
-                    }
-                    p = Convert.ToDouble(PValueBox.Value);
-                    v = Convert.ToInt32(VValueBox.Value) * 60 * 24 * 7;
-                    downS = v * t / p;
-                    DownSTB.Text = downS.ToString();
-                    MessageBox.Show($"A = 26 (все нижние латинские буквы), L = {KnowTheL(accesibleLowSymbols)}");
-                    MessageBox.Show($"A = 52 (все нижние и высокие латинские буквы), L = {KnowTheL(accesibleLowHighSymbols)}");
-                    MessageBox.Show($"A = 62 (все нижние и высокие латинские буквы + цифры), L = {KnowTheL(accesibleLowHighNumSymbols)}");
+                    s = Math.Pow(accesibleLowSymbols, KnowTheL(accesibleLowSymbols));
+                    break;
+                case 1:
+                    s = Math.Pow(accesibleLowHighSymbols, KnowTheL(accesibleLowHighSymbols));
+                    break;
+                case 2:
+                    s = Math.Pow(accesibleLowHighNumSymbols, KnowTheL(accesibleLowHighNumSymbols));
                     break;
             }
-        }
+            SValueTB.Text = s.ToString();
+                    }
     }
 }

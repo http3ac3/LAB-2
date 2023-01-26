@@ -42,6 +42,8 @@
             this.DownSTB = new System.Windows.Forms.TextBox();
             this.AccessibleSymbolsCB = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.SValueTB = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PValueBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VValueBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TValueBox)).BeginInit();
@@ -67,7 +69,7 @@
             0,
             655360});
             this.PValueBox.Location = new System.Drawing.Point(328, 9);
-            this.PValueBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PValueBox.Margin = new System.Windows.Forms.Padding(4);
             this.PValueBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -186,6 +188,7 @@
             // 
             this.DownSTB.Location = new System.Drawing.Point(45, 162);
             this.DownSTB.Name = "DownSTB";
+            this.DownSTB.ReadOnly = true;
             this.DownSTB.Size = new System.Drawing.Size(283, 23);
             this.DownSTB.TabIndex = 11;
             // 
@@ -213,11 +216,32 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Выберите число используемых символов:";
             // 
+            // SValueTB
+            // 
+            this.SValueTB.Location = new System.Drawing.Point(45, 189);
+            this.SValueTB.Name = "SValueTB";
+            this.SValueTB.ReadOnly = true;
+            this.SValueTB.Size = new System.Drawing.Size(283, 23);
+            this.SValueTB.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label7.Location = new System.Drawing.Point(16, 192);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 17);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "S";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 215);
+            this.Controls.Add(this.SValueTB);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.AccessibleSymbolsCB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.DownSTB);
@@ -233,7 +257,7 @@
             this.Controls.Add(this.PValueBox);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -261,6 +285,8 @@
         private System.Windows.Forms.TextBox DownSTB;
         private System.Windows.Forms.ComboBox AccessibleSymbolsCB;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox SValueTB;
+        private System.Windows.Forms.Label label7;
     }
 }
 
